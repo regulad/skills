@@ -1,0 +1,11 @@
+{
+  "name": "regulad",
+  "description": "regulad's always-on rules for coding agents, and the skills that go with them",
+  "author": {
+    "name": "Parker Wahle",
+    "url": "https://github.com/regulad"
+  },
+  "homepage": "https://github.com/regulad/skills",
+  "repository": "https://github.com/regulad/skills",
+  "license": "AGPL-3.0-or-later"
+}

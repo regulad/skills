@@ -34,6 +34,11 @@ Vencord clone's desktop-discord skill), in dotfiles.
   `skills/reinit/` is `/regulad:reinit`, which Parker runs to read them back
   into a running session. The hooks and `reinit` each list the files by
   name, so a file added, renamed or removed here changes both.
+- Each file in `rules/` stands on its own, with its own `#` heading and no
+  reference to another file's text: the hooks run in parallel, so the files
+  reach the session in no fixed order.
+- `hooks/emit-rules.sh` turns one rules file into the hook's JSON. It's POSIX
+  `sh` and `awk`, because it runs under Git Bash, macOS and Linux alike.
 - `skills/<name>/SKILL.md`: the skills, which load when a task calls for
   them. Both tools find them under `skills/`
   ([Claude Code skills](https://code.claude.com/docs/en/skills),

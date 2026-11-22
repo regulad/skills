@@ -1,0 +1,15 @@
+{
+  "name": "regulad",
+  "description": "regulad's rules and skills for coding agents",
+  "owner": {
+    "name": "Parker Wahle",
+    "url": "https://github.com/regulad"
+  },
+  "plugins": [
+    {
+      "name": "regulad",
+      "source": "./",
+      "description": "regulad's always-on rules for coding agents, and the skills that go with them"
+    }
+  ]
+}
