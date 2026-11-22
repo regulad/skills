@@ -13,8 +13,12 @@ commit SHA, with the readable version beside it:
   `pre-commit autoupdate --freeze` writes it, rather than a tag.
 - **Git dependencies in Poetry, Cargo and the like:** `rev = "<full SHA>"`
   rather than `tag =`, and never `branch =`.
-- **Anything else that takes a git ref,** such as a plugin marketplace: a
-  commit SHA, as homelab pins alock in its `.claude/settings.json`.
+- **Anything else that takes a git ref:** a commit SHA.
+
+**Plugin marketplaces are exempt.** A Claude Code or Codex marketplace, and
+the plugins it lists, may follow their default branch, as dotfiles installs
+regulad/skills and the others. Pinning one is still allowed where a project
+wants it, as homelab pins alock in its `.claude/settings.json`.
 
 A tag is fine in two cases. Say which one applies, in a comment beside it:
 - **The ecosystem makes the tag immutable,** so a published version can't be
