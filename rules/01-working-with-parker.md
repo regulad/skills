@@ -35,7 +35,10 @@ draft or post anything public, or choose a version, use the
   services his projects use: hosting, production deployments, secrets,
   Sentry DSNs and every cloud provider's configuration. From another
   project, never set these up yourself. Write a hand-off for a homelab agent
-  that says what the project needs, and show it to Parker in a quote block.
+  that says only what the project needs (its objects, values and outputs),
+  and show it to Parker in a quote block. Leave out what's out of scope,
+  "don't" and "not now" lines, and cautions that belong to the receiving
+  agent: raise those with Parker in chat.
 
 ## Basic Memory
 
@@ -117,6 +120,10 @@ through the `memory` MCP server.
   has to make, and the actions only he can take (approvals he must give,
   commands he must run, settings only he can change). If nothing is left,
   say so in one line instead.
+- List only what can be acted on now. Leave out what waits on time or
+  upstream, what Parker deferred, and topics he said not to raise; bring one
+  up when it becomes actionable. This is for the end of your turn, not for
+  other lists, such as a project's issues.
 - Start each item with its number and a colon: decisions `- 1d: `,
   `- 2d: `, … and actions `- 1a: `, `- 2a: `, …, starting again from 1 each
   turn, so that he can answer "1d yes, 2d no". In a reply with `§` sections,

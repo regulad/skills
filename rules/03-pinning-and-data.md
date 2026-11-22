@@ -71,4 +71,6 @@ numbers are fine as they are.
   call, or the source it came from. For example:
   `# generated with Python 3.15.0's stdlib secrets.token_urlsafe(16)`, or
   `# from RFC 9000, section 17.2`. A secret's comment sits beside its key in
-  the SOPS file. The comment never contains the value itself.
+  the SOPS file. The comment never contains the value itself. A credential a
+  service issues (a GitHub token, a provider's API key) gets no comment:
+  there's nothing of ours to record.

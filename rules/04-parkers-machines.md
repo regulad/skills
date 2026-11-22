@@ -19,7 +19,10 @@
   and breaks nested quotes. Use `wsl -d <distro> -e <program> <args>`, or a
   script file run with `-e bash /mnt/c/…`. From pwsh, `~` in an argument
   becomes the Windows home before WSL sees it: use `$HOME` inside
-  `-e sh -c '…'`.
+  `-e sh -c '…'`. The Bash tool's shell inside WSL is zsh too: an unquoted
+  `$var` doesn't word-split, `for path in …` overwrites `$PATH`, and
+  `$x[1h]` is a subscript. Run anything that relies on sh's behaviour with
+  `bash -c '…'` or from a script file.
 - **IPv6 is first class** on Parker's networks. Record every machine or
   subnet (firewall, DNS, tailnet policy, configs) with its IPv6 addresses,
   before IPv4. If only IPv4 is known, ask for the IPv6 counterpart. A missing

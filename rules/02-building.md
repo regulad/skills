@@ -20,6 +20,12 @@ second. When the same code would live in several of his projects, propose a
 common repository for it instead of another copy. Creating one is Parker's
 call.
 
+**For a platform's own procedure,** such as attaching an OCI volume or
+setting up an image, read the vendor's current documentation first, through
+the vendor's MCP server where there is one (Microsoft Learn's for Windows),
+and quote what it requires. Then show where Parker's precedent differs, and
+let him choose.
+
 **Use maintained libraries for general-purpose logic.** Before writing
 logic that isn't the project's own mechanism, find the respectable,
 maintained FOSS library that already does it, and use it. That covers
@@ -59,6 +65,10 @@ instead of carrying its own muxer.
   - the platform can't take the library;
   - it's trivial glue of a few dozen lines (never hand-assembled crypto);
   - a measurement shows the library is inadequate.
+- When a tool lacks a feature, lead with its native options, the upstream
+  issue for the feature, and any convention-level alternative. Don't propose
+  a wrapper, drop-in or retagging layer bolted on top unless Parker asks: he
+  has turned one down as fragile.
 - When you reject a library, record why in the code or the project's docs.
 - If using a library needs an install, ask Parker. Tools are declared in
   regulad/dotfiles.
@@ -70,6 +80,10 @@ instead of carrying its own muxer.
 - Never keep two copies of something, on disk or in a repository, when one
   of them is always the authoritative one. Delete the other, or generate it
   from the source.
+
+**Fix the general problem.** When proposing a fix, say whether it's general
+or specific to one case, and prefer the general one. Once a general fix
+exists, remove the specific workarounds it replaces.
 
 ## CI/CD and builds
 
@@ -85,6 +99,15 @@ instead of carrying its own muxer.
   reusable workflows (`build.yml`, or `bake.yml` for a Bake definition).
   These build each platform on its own native runner and sign provenance.
   Their cache is off by default, so set `cache: true`.
+- **Building from a fork or a mirror** (where building is the fork's goal):
+  leave upstream's branches untouched. An orphan `ci` branch, made the
+  default (with `default_branch: ci` in its `.github/settings.yml`), holds
+  only a README and the workflow. The workflow checks the source out of
+  `master` (or a manual run's `ref`), never `ci` itself, pins every input,
+  and publishes only when a manual run opts in. Put the branch on the
+  existing fork, or on the repository named for where the artifacts
+  publish, never on a new repository. regulad/nssm and regulad/RSSHub work
+  this way.
 - **Build for more than one architecture:** aarch64 and amd64 at the
   x86-64-v3 level, on every platform that has both. For example:
   - `linux/arm64` and `linux/amd64/v3` for images;
