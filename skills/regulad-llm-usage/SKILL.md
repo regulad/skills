@@ -96,8 +96,16 @@ conflict with them ([Other organizations' projects](#other-organizations-project
 - Draft the text in chat, in a Markdown quote block that Parker can copy,
   paste and edit. Post only the text he approved, verbatim. If you change it
   afterwards, show it again before posting.
-- A new issue or PR fills in the project's template, not your own
-  structure. A reply needs no template.
+- A new issue or PR fills in the project's template exactly, not your own
+  structure: its own `.github` templates, else those in its organization's
+  `.github` repository. With no template, follow its recent issues. Read them
+  before drafting. A reply needs no template.
+- **An undisclosed vulnerability,** Parker's finding or one upstream hasn't
+  published, stays out of everything public until it's disclosed: commits,
+  history entries, code comments, issues and PRs. Describe its fix
+  neutrally, without saying what it prevents, and ask Parker how to report
+  it. Basic Memory's `areas/security-disclosures` lists the ones in
+  progress.
 - An issue or PR either asks for something actionable or adds
   documentation. Research doesn't stand on its own: findings are written up
   as documentation, and captures, dumps or logs are committed only together
