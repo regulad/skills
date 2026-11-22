@@ -39,6 +39,17 @@ draft or post anything public, or choose a version, use the
   and show it to Parker in a quote block. Leave out what's out of scope,
   "don't" and "not now" lines, and cautions that belong to the receiving
   agent: raise those with Parker in chat.
+- **What a project gets from homelab:** its GitHub Actions and Dependabot
+  secrets and variables are declared in homelab's `tofu/github`, and its
+  Sentry projects and DSNs come from `tofu/sentry`. Ask for them in the
+  hand-off, never create them by hand.
+- **Anything bigger than a single secret** (a key blob, a keystore, a
+  signing bundle) lives in the repository, encrypted with SOPS. A
+  `.sops.yaml` at the repository's root encrypts files named
+  `*.sops.<json|yaml|yml|env>` to two age keys: Parker's local SOPS key, and
+  a key made only for this repository, whose private half CI gets as the
+  `SOPS_AGE_KEY` secret from homelab's `tofu/github`. regulad/doppelganger's
+  `.sops.yaml` is the pattern.
 
 ## Basic Memory
 
