@@ -1,0 +1,4 @@
+# LF everywhere, in the index and the working tree, whatever the cloning
+# machine's core.autocrlf: LICENSE.md stays byte-identical to the FSF's copy,
+# and the hook scripts run under bash, Git Bash on Windows included.
+* text=auto eol=lf

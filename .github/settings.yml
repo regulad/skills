@@ -1,0 +1,17 @@
+# This repository's settings, for the Probot Settings app
+# (https://github.com/repository-settings/app). Everything shared comes from
+# regulad/.github's .github/settings.yml; this file sets only what is this
+# repository's own.
+_extends: .github
+
+repository:
+  name: skills
+  description: >-
+    Agent rules and skills, as a Claude Code and Codex plugin marketplace
+  homepage: ""
+  # Public: Claude Code and Codex fetch the marketplace from GitHub on every
+  # machine, without a token.
+  private: false
+  # Comma-and-space separated string, not a YAML list.
+  topics: agent-skills, claude-code, claude-code-plugins, codex, codex-plugins
+  default_branch: master

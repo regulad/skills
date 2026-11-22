@@ -1,0 +1,30 @@
+# pre-commit (https://pre-commit.com) hooks. The git template installs them in
+# every new clone; `pre-commit install` does it by hand, and
+# `pre-commit run --all-files` runs them on the whole tree. Each rev is a full
+# commit SHA with its release in a `# frozen:` comment, as
+# `pre-commit autoupdate --freeze` writes them; Dependabot updates them.
+default_install_hook_types: [pre-commit, commit-msg]
+# File hooks run on commits only. Without this they would also run at every
+# other installed stage, commit-msg included, against the message file.
+default_stages: [pre-commit]
+# The licence text stays exactly as published.
+exclude: '^LICENSE\.md$'
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c  # frozen: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: end-of-file-fixer
+      - id: mixed-line-ending
+        args: [--fix=lf]
+      - id: check-yaml
+      - id: check-toml
+      # The plugin and marketplace manifests, which must be strict JSON.
+      - id: check-json
+      - id: check-merge-conflict
+      - id: check-added-large-files
+  - repo: https://github.com/qoomon/git-conventional-commits
+    rev: f00599350f1d22c14f431b4e458f1076124c0c0d  # frozen: v2.9.0
+    hooks:
+      - id: conventional-commits

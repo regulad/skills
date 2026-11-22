@@ -1,0 +1,24 @@
+# Dependabot keeps the pre-commit hooks' revisions (.pre-commit-config.yaml)
+# current, weekly. Each rev is a full commit SHA with its release in a
+# `# frozen:` comment; Dependabot reads the comment to pick the next release
+# and rewrites both. This repository has no workflows yet: add the
+# github-actions ecosystem with the first one.
+#
+# An update waits until its release is two weeks old (`cooldown`). Security
+# updates don't wait: the cooldown doesn't apply to them.
+#
+# Its label comes from regulad/.github's shared settings, which deletes labels
+# that neither file lists.
+version: 2
+updates:
+  - package-ecosystem: pre-commit
+    directory: /
+    schedule:
+      interval: weekly
+    cooldown:
+      default-days: 14
+    open-pull-requests-limit: 5
+    labels: [dependencies]
+    groups:
+      pre-commit:
+        patterns: ["*"]
