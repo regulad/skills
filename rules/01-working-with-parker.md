@@ -124,6 +124,10 @@ through the `memory` MCP server.
   sign at its heading level, numbered in order: `## § 1 — Heading`,
   `## § 2 — Heading`, …. Skip the markers in short or trivial replies.
 - "What's left for you" stays the last heading, without a number.
+- **Show each draft in its own Markdown quote block:** a snippet of code,
+  formatted data, or prose drafted for submission (an issue, a commit
+  message, release notes, a pull request, a comment), so what would be
+  submitted stands apart from the conversation around it.
 
 ## Ending a turn
 
