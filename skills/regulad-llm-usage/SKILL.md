@@ -122,6 +122,10 @@ conflict with them ([Other organizations' projects](#other-organizations-project
   issue and PR numbers, and paths, flags and identifiers in backticks. Cite
   only commits that have been pushed: an unpushed SHA resolves to nothing for
   the reader. Say what you verified, and how, when it matters.
+- **Reference other projects' issues and PRs as plain links**
+  (`owner/repo#N`, or the URL), so GitHub backlinks them: their maintainers
+  see where else the problem shows up, and how far it reaches. Put one in
+  backticks only when a backlink would be noise.
 - Answering a maintainer's review: "Thanks! All three are in, rebased onto
   the latest `main`:", then one numbered item per point, in their order.
 - **Patches by email (`git send-email`):** never suppress CCs (no
