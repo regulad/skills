@@ -53,6 +53,8 @@ conflict with them ([Other organizations' projects](#other-organizations-project
   traceable to their session.
 - Never bypass signing: no `--no-gpg-sign`, `-c commit.gpgsign=false` or
   `--no-verify`. Amends and rebases re-sign, as they should.
+- Prefer `--force-with-lease` over `--force` where a rewritten branch has to
+  be force-pushed.
 - **Commit messages and PR titles follow the project's precedent wherever
   it has one:** its CONTRIBUTING, PR template or PR-title check, or a
   consistent style in its `git log` and recently merged PR titles. A squash
