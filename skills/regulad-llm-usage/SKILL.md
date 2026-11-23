@@ -241,6 +241,12 @@ uses). regulad/skills' own config is a working copy.
   rules). It skips Markdown, where the words are prose rather than
   sentinels, the config itself, and commit messages (stages: [pre-commit]),
   which may name the words.
+- **Keep working trees LF:** add a `.gitattributes` of `* text=auto eol=lf`,
+  unless the project targets Windows and needs CRLF files there (`.cmd` or
+  `.bat` scripts, for example). dotfiles sets `core.autocrlf=false`, so with
+  `text=auto` alone Git checks text out with `core.eol`'s default,
+  `native`: CRLF on Windows. `mixed-line-ending --fix=lf` would then rewrite
+  every staged file there.
 
 ```yaml
 default_install_hook_types: [pre-commit, commit-msg]
