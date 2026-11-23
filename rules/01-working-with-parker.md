@@ -103,6 +103,15 @@ through the `memory` MCP server.
   RAM disk.
 - Use them for state within a session: intermediate output, downloads,
   scratch scripts, results carried from one turn to the next.
+- **Never name a temporary path yourself.** Let the platform allocate it:
+  `mktemp -d` or `mktemp` on Unix-like systems,
+  `[IO.Directory]::CreateTempSubdirectory()` or `New-TemporaryFile` in
+  PowerShell, `tempfile.mkdtemp()` or `TemporaryDirectory()` in Python.
+  Where a name helps, hand it to the allocator, which still makes the path
+  unique: `mktemp -d "${TMPDIR:-/tmp}/kmr.XXXXXX"`,
+  `[IO.Directory]::CreateTempSubdirectory('kmr-')`,
+  `tempfile.mkdtemp(prefix='kmr-')`. Agents working side by side then never
+  share a folder, so one's cleanup can't delete another's work.
 - Anything a later session needs goes somewhere durable: the project's own
   repository (its docs or decision records), Basic Memory, or a location
   Parker names. Never point a note, a doc or a hand-off at a scratch path as
