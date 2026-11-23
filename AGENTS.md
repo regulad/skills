@@ -24,6 +24,13 @@ Vencord clone's desktop-discord skill), in dotfiles.
   ([manage plugins](https://code.claude.com/docs/en/plugins/install)).
 - Every commit on `master` reaches every machine, so each one stands on its
   own: manifests that validate, hooks that run, rules that read complete.
+- After pushing, update the installs on the machine you're on, so the change
+  is live without waiting for the next apply: run
+  `claude plugin marketplace update regulad`, then
+  `claude plugin update regulad@regulad`. On a Windows host, run the same in
+  each WSL instance that has Claude Code, through
+  `wsl -d <distro> -e claude plugin …`. A session that is already running
+  picks the change up after `/reload-plugins` or a restart.
 
 ## What goes where
 
