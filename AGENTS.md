@@ -29,10 +29,10 @@ Vencord clone's desktop-discord skill), in dotfiles.
   `claude plugin marketplace update regulad`, then
   `claude plugin update regulad@regulad`. On a Windows host, run the same in
   each WSL instance that has Claude Code (`wsl --list` names them), through
-  its login shell, since `claude` comes from Homebrew's prefix, which only
-  the login shell puts on `PATH`:
-  `wsl -d <distro> -e zsh -lc 'claude plugin …'`. A session that is already
-  running picks the change up after `/reload-plugins` or a restart.
+  that instance's login shell, so `PATH` is what an interactive session
+  sees: `wsl -d <distro> -e <login shell> -lc 'claude plugin …'`. A session
+  that is already running picks the change up after `/reload-plugins` or a
+  restart.
 
 ## What goes where
 
