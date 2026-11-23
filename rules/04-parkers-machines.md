@@ -5,6 +5,9 @@
   one. Tell him first, and run the command in the background. After "agent
   refused operation", ssh waits on a passphrase prompt: stop the stuck `git`
   or `ssh` processes, and retry when he's ready.
+- **Read-only SSH** to one of Parker's hosts is permitted whenever you ask
+  for it: name the host and what you'll read. Changing anything on a host
+  still needs his approval for that change.
 - **Elevated work goes in one script and one process:** one UAC or sudo
   prompt, progress written to a file, and in-process APIs rather than a loop
   of console programs (`EventLogSession.GlobalSession.ClearLog()`, not
