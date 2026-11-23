@@ -236,6 +236,10 @@ uses). regulad/skills' own config is a working copy.
   and `commitScopes: []`) from the tool's own
   `git-conventional-commits.default.yaml` at the pinned rev. A `convention`
   block must list both keys.
+- **A TODO names its issue.** The `todo-needs-issue` hook refuses a `TODO`
+  or `FIXME` that isn't written `TODO(#N)` (see Tracking work in the
+  rules). It skips Markdown, where the words are prose rather than
+  sentinels, and the config itself.
 
 ```yaml
 default_install_hook_types: [pre-commit, commit-msg]
@@ -261,6 +265,16 @@ repos:
     rev: <full SHA>  # frozen: <release tag>
     hooks:
       - id: conventional-commits
+  # A TODO or FIXME names its GitHub issue, as TODO(#123). Markdown and this
+  # file use the words without being sentinels.
+  - repo: local
+    hooks:
+      - id: todo-needs-issue
+        name: TODO and FIXME name an issue, as TODO(#N)
+        language: pygrep
+        entry: '\b(TODO|FIXME)\b(?!\(#\d+\))'
+        exclude_types: [markdown]
+        exclude: '^\.pre-commit-config\.yaml$'
 ```
 
 Leave out the conventional-commits hook in a project whose established

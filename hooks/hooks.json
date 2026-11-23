@@ -8,7 +8,8 @@
           { "type": "command", "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/emit-rules.sh\" SessionStart rules/01-working-with-parker.md" },
           { "type": "command", "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/emit-rules.sh\" SessionStart rules/02-building.md" },
           { "type": "command", "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/emit-rules.sh\" SessionStart rules/03-pinning-and-data.md" },
-          { "type": "command", "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/emit-rules.sh\" SessionStart rules/04-parkers-machines.md" }
+          { "type": "command", "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/emit-rules.sh\" SessionStart rules/04-parkers-machines.md" },
+          { "type": "command", "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/emit-rules.sh\" SessionStart rules/05-tracking-work.md" }
         ]
       }
     ],
@@ -18,7 +19,8 @@
           { "type": "command", "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/emit-rules.sh\" SubagentStart rules/01-working-with-parker.md" },
           { "type": "command", "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/emit-rules.sh\" SubagentStart rules/02-building.md" },
           { "type": "command", "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/emit-rules.sh\" SubagentStart rules/03-pinning-and-data.md" },
-          { "type": "command", "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/emit-rules.sh\" SubagentStart rules/04-parkers-machines.md" }
+          { "type": "command", "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/emit-rules.sh\" SubagentStart rules/04-parkers-machines.md" },
+          { "type": "command", "command": "sh \"${CLAUDE_PLUGIN_ROOT}/hooks/emit-rules.sh\" SubagentStart rules/05-tracking-work.md" }
         ]
       }
     ]
