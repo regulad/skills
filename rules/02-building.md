@@ -143,8 +143,13 @@ that identifies a person.
 - **Approximate location is the one carve-out:** the country, region or
   city the service derives from the connection is fine, as long as the
   address itself isn't kept.
-- **Identify a user or device by one opaque ID at most:** a UID, such as a
-  random UUID the app keeps per install, or a trace ID. Never an email
-  address (hashed or not), a username or a hardware serial in its place.
+- **Identify a user or device by one opaque ID at most, made fresh at each
+  start:** a random ID generated when the app starts, or a trace ID.
+  Nothing that persists across launches: no per-install ID, and never an
+  email address (hashed or not), a username or a hardware serial. Where an
+  SDK persists an ID of its own, override it. sentry-native stores an
+  installation ID and sends it as `user.id`, and as the session's ID,
+  whenever the app sets none, so set a per-start ID with
+  `sentry_set_user()`.
 - Where an existing project sends more than this, tell Parker and propose
   the fix.
