@@ -35,6 +35,8 @@ repos:
       - id: todo-needs-issue
         name: TODO and FIXME name an issue, as TODO(#N)
         language: pygrep
+        # Code only: never the commit message, which may name the words.
+        stages: [pre-commit]
         entry: '\b(TODO|FIXME)\b(?!\(#\d+\))'
         exclude_types: [markdown]
         exclude: '^\.pre-commit-config\.yaml$'

@@ -239,7 +239,8 @@ uses). regulad/skills' own config is a working copy.
 - **A TODO names its issue.** The `todo-needs-issue` hook refuses a `TODO`
   or `FIXME` that isn't written `TODO(#N)` (see Tracking work in the
   rules). It skips Markdown, where the words are prose rather than
-  sentinels, and the config itself.
+  sentinels, the config itself, and commit messages (stages: [pre-commit]),
+  which may name the words.
 
 ```yaml
 default_install_hook_types: [pre-commit, commit-msg]
@@ -272,6 +273,8 @@ repos:
       - id: todo-needs-issue
         name: TODO and FIXME name an issue, as TODO(#N)
         language: pygrep
+        # Code only: never the commit message, which may name the words.
+        stages: [pre-commit]
         entry: '\b(TODO|FIXME)\b(?!\(#\d+\))'
         exclude_types: [markdown]
         exclude: '^\.pre-commit-config\.yaml$'
