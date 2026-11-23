@@ -83,7 +83,8 @@ numbers are fine as they are.
   parser picks out of it (a URL's host, a key ID's first and last four
   characters), or compare keyed hashes instead of values.
 - **Don't hide a secret with `sed`, `grep` or `awk`.** A multi-line value,
-  such as a PEM key, slips past a line pattern. Keep the value out of the
+  such as a PEM key, slips past a line pattern, and `grep`'s context flags
+  (`-A`, `-B`, `-C`) print a secret's neighbours. Keep the value out of the
   output in the first place.
 - **A secret that reaches a session's output is exposed,** since the
   transcript keeps it. Tell Parker at once, and rotate it before any other
