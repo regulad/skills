@@ -124,3 +124,25 @@ exists, remove the specific workarounds it replaces.
   Examples are the Intel Macs that regulad/dotfiles supports back to macOS
   10.15, and older x86 PCs or servers. Don't assume v3 or a lower baseline
   for him.
+
+## User privacy in telemetry
+
+Error reporting and analytics (Sentry, or anything like it) carry nothing
+that identifies a person.
+
+- **No PII:** no names, email addresses, usernames, device names, or the
+  contents of messages and files. Leave the SDK's default-PII switch off:
+  Sentry's `sendDefaultPii`. Sentry's JavaScript SDK is replacing it with
+  `dataCollection`, and passing that option at all makes its categories
+  permissive by default, so set `userInfo: false` and each of the others.
+- **No IP addresses, at either end.** The SDK neither sends nor infers one:
+  in Sentry, `setUser({ ip_address: null })` stops the inference, and deny
+  lists keep headers such as `X-Forwarded-For` out. The project doesn't
+  store one either: turn on the setting that prevents storing IP addresses
+  in the Sentry project's Security & Privacy settings, and ask for it in the
+  homelab hand-off along with the project.
+- **Identify a user or device by one opaque ID at most:** a UID, such as a
+  random UUID the app keeps per install, or a trace ID. Never an email
+  address (hashed or not), a username or a hardware serial in its place.
+- Where an existing project sends more than this, tell Parker and propose
+  the fix.
