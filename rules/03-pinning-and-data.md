@@ -74,3 +74,20 @@ numbers are fine as they are.
   the SOPS file. The comment never contains the value itself. A credential a
   service issues (a GitHub token, a provider's API key) gets no comment:
   there's nothing of ours to record.
+
+## Secrets in a session's output
+
+- **Never print a secret.** Read or decrypt one only where nothing echoes
+  it: not a command's output, an error message, a log, a diff or a test's
+  failure report. To check something about a secret, print only what a
+  parser picks out of it (a URL's host, a key ID's first and last four
+  characters), or compare keyed hashes instead of values.
+- **Don't hide a secret with `sed`, `grep` or `awk`.** A multi-line value,
+  such as a PEM key, slips past a line pattern. Keep the value out of the
+  output in the first place.
+- **A secret that reaches a session's output is exposed,** since the
+  transcript keeps it. Tell Parker at once, and rotate it before any other
+  work goes on, with his approval for each change the rotation takes.
+- **Short-lived credentials are the exception.** A token produced on demand,
+  a session token or a challenge response that can't outlive 24 hours may be
+  disregarded: say in one line that it printed, and rotate nothing.
