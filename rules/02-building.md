@@ -135,12 +135,14 @@ that identifies a person.
   Sentry's `sendDefaultPii`. Sentry's JavaScript SDK is replacing it with
   `dataCollection`, and passing that option at all makes its categories
   permissive by default, so set `userInfo: false` and each of the others.
-- **No IP addresses, at either end.** The SDK neither sends nor infers one:
-  in Sentry, `setUser({ ip_address: null })` stops the inference, and deny
-  lists keep headers such as `X-Forwarded-For` out. The project doesn't
-  store one either: turn on the setting that prevents storing IP addresses
-  in the Sentry project's Security & Privacy settings, and ask for it in the
-  homelab hand-off along with the project.
+- **No IP address is stored.** Turn on the setting that prevents storing IP
+  addresses in the Sentry project's Security & Privacy settings, and ask for
+  it in the homelab hand-off along with the project. The app never sets one
+  itself (no `ip_address` in Sentry's `setUser`), and deny lists keep
+  headers such as `X-Forwarded-For` out of events.
+- **Approximate location is the one carve-out:** the country, region or
+  city the service derives from the connection is fine, as long as the
+  address itself isn't kept.
 - **Identify a user or device by one opaque ID at most:** a UID, such as a
   random UUID the app keeps per install, or a trace ID. Never an email
   address (hashed or not), a username or a hardware serial in its place.
