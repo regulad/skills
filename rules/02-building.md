@@ -8,8 +8,8 @@ Ship as little original code as possible.
 his other projects handle it:
 - his code: GitHub under regulad (`gh search code --owner regulad`) and his
   local clones;
-- his recorded decisions: each project's AGENTS.md, DECISIONS.md and PLAN.md,
-  and homelab's `.claude/history/`;
+- his recorded decisions: each project's AGENTS.md, and its history in
+  Basic Memory's `areas/<project>-history/`;
 - his methods: how his projects set up Sentry, CI, releases, settings files
   and licence notices.
 

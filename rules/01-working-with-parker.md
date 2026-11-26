@@ -113,7 +113,7 @@ through the `memory` MCP server.
   `tempfile.mkdtemp(prefix='kmr-')`. Agents working side by side then never
   share a folder, so one's cleanup can't delete another's work.
 - Anything a later session needs goes somewhere durable: the project's own
-  repository (its docs or decision records), Basic Memory, or a location
+  repository (its AGENTS.md or docs), Basic Memory, or a location
   Parker names. Never point a note, a doc or a hand-off at a scratch path as
   if it will still be there.
 - **One exception, for hand-offs:** to pass a file to another agent running
