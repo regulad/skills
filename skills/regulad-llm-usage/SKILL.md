@@ -55,6 +55,15 @@ conflict with them ([Other organizations' projects](#other-organizations-project
   `--no-verify`. Amends and rebases re-sign, as they should.
 - Prefer `--force-with-lease` over `--force` where a rewritten branch has to
   be force-pushed.
+- **A branch's remote copy goes with the branch.** When you delete a branch,
+  merged or abandoned, also delete it on every remote you pushed it to
+  (`git push <remote> --delete <branch>`), in the same push as the work it
+  goes with where there is one, and `git fetch --prune` afterwards. Removing
+  a worktree counts: its branch goes, and then its remote copy. Before you
+  report work as done, compare `git ls-remote --heads` with the local
+  branches and delete any branch of yours that is left only on a remote.
+  Branches a tool owns, such as Dependabot's, go away when their pull
+  requests close; leave them alone.
 - **Commit messages and PR titles follow the project's precedent wherever
   it has one:** its CONTRIBUTING, PR template or PR-title check, or a
   consistent style in its `git log` and recently merged PR titles. A squash
