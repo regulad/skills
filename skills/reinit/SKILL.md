@@ -46,3 +46,5 @@ directory, two levels above this file) in name order, and then resume.
 !`cat ${CLAUDE_PLUGIN_ROOT}/rules/04-parkers-machines.md`
 
 !`cat ${CLAUDE_PLUGIN_ROOT}/rules/05-tracking-work.md`
+
+!`cat ${CLAUDE_PLUGIN_ROOT}/rules/06-english.md`
